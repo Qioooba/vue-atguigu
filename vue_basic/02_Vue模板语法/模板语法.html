@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初识vue</title>
+    <script type = "text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+       <h1>插值语法</h1>
+       <h3>hello  {{name}}</h3>
+
+       <h1>指令语法</h1>
+       <a v-bind:href="school.url.toUpperCase()" x="hello"> 点我去{{school.name}}学习</a>
+       <a :href="school.url">点我去{{school.name}}</a>
+    </div>
+
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+    new Vue({
+        el:'#root',
+        data:{
+            name:'aa',
+            school:{
+                name:'尚硅谷',
+                url:'http://www.baidu.com'
+            }
+            
+        }
+    })
+    </script>
+</body>
+</html>

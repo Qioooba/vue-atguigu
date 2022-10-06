@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两种写法</title>
+    <script type = "text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+       姓<input type="text" v-model="firstName"><br/>
+       名<input type="text" v-model="lastName"> <br/>
+       姓名: <span>{{fullName}}</span> <br/>
+       姓名: <span>{{fullName}}</span> <br/>
+       姓名: <span>{{fullName}}</span> <br/>
+       姓名: <span>{{fullName}}</span> <br/>
+    </div>
+
+    
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+    
+
+    new Vue({
+        el:'#root',
+        data:{
+            firstName:'qi',
+            lastName:'jun',
+        },
+        computed:{
+            fullName(){
+                return this.firstName + '-' + this.lastName
+            }
+             
+        }
+    })
+    </script>
+</body>
+</html>
