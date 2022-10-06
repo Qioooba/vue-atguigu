@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两种写法</title>
+    <script type = "text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>今天的天气很{{info}}</h1>
+        <button @click="changeWeather">切换</button>
+
+        <hr/>
+
+        <h3>a的值是{{numbers.a}}</h3>
+        <button @click="numbers.a++">点我让a++</button>
+        <h3>b的值是{{numbers.b}}</h3>
+        <button @click="numbers.b++">点我让b++</button>
+    </div>
+
+    
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+    
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            isHot:true,
+            numbers:{
+                a:1,
+                b:1
+            }
+        },
+        computed:{
+            info(){
+            return this.isHot ? '炎热' :'凉爽'
+            }
+        },
+        methods: {
+            changeWeather(){
+                this.isHot = !this.isHot
+            }
+        },
+        watch:{
+            numbers:{
+                deep:true,
+                handler(){
+                    console.log('numbers改变了')
+                }
+            }
+            
+        }
+    })
+
+    
+    
+    </script>
+</body>
+</html>

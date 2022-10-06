@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两种写法</title>
+    <script type = "text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>今天的天气很{{info}}</h1>
+        <button @click="changeWeather">切换</button>
+    </div>
+
+    
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+    
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            isHot:true
+        },
+        computed:{
+            info(){
+            return this.isHot ? '炎热' :'凉爽'
+            }
+        },
+        methods: {
+            changeWeather(){
+                this.isHot = !this.isHot
+            }
+        },
+        // watch:{
+        //     isHot:{
+        //         immediate:true,//初始化时让handler调用一下
+        //         handler(newValue,oldValue){
+        //             console(newValue,oldValue)
+        //         }
+        //     },
+        //     info:{
+        //         immediate:true,//初始化时让handler调用一下
+        //         handler(newValue,oldValue){
+        //             console(newValue,oldValue)
+        //         }
+        //     }
+        // }
+    })
+   vm.$watch('isHot',{
+    immediate:true,
+    handler(newValue,oldValue){
+
+    }
+   })
+    
+    
+    </script>
+</body>
+</html>
